@@ -13,7 +13,7 @@ const partition = function (size, overlapSize, groups, element) {
 };
 
 const partitionsBySize = function (array, size, overlapSize) {
-  if (size === 0 || overlapSize > size || overlapSize === 0) {
+  if (size === 0 || overlapSize >= size || overlapSize === 0) {
     return [];
   }
 
@@ -26,4 +26,4 @@ console.log(partitionsBySize([1, 2, 3, 5, 6], 3, 2));
 console.log(partitionsBySize([1, 2, 3, 5, 6, 2, 3, 5, 5], 5, 2));
 console.log(partitionsBySize([1, 2, 3, 5, 6], 2, 3));
 console.log(partitionsBySize([1, 2, 3, 5, 6], 2, 0));
-console.log(partitionsBySize([1, 2, 3, 5, 6], 0, 2));
+console.log(partitionsBySize([1, 2, 3, 5, 6], 2, 2));
