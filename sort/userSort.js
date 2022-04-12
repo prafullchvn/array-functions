@@ -13,12 +13,29 @@ const basedOnAge = function (user1, user2) {
   return user1[1] - user2[1];
 };
 
-const basedOnAgeName = function (user1, user2) {
-  if ((user1[1] - user2[1]) !== 0) {
-    return user1[1] - user2[1];
-  }
-
-  return user1[0].length - user2[0].length;
+const difference = function (num1, num2) {
+  return num1 - num2;
 };
 
+const differenceInAge = function (user1, user2) {
+  return difference(user1[1], user2[1]);
+};
+
+const differenceInNameLength = function (user1, user2) {
+  return difference(user1, user2);
+};
+
+const basedOnAgeName = function (user1, user2) {
+  const ageDifference = differenceInAge(user1, user2);
+  if ((ageDifference) !== 0) {
+    return ageDifference;
+  }
+
+  return differenceInNameLength(user1, user2);
+};
+
+console.log('Based on Age:');
+console.log(sort(users, basedOnAge));
+
+console.log('Based on Age and then length of Name :');
 console.log(sort(users, basedOnAgeName));
