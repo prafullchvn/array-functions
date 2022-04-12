@@ -1,4 +1,4 @@
-const sort = require('./sort.js').sort;
+const sort = require('./sortV2.js').sort;
 
 const ascending = function (value1, value2) {
   return value1 - value2;
