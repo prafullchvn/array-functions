@@ -16,3 +16,4 @@ const sort = function (values, comparator) {
 };
 
 exports.sort = sort;
+exports.swap = swap;
