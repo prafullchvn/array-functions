@@ -1,6 +1,6 @@
-const findGroup = function (groups, value) {
+const findUserGroup = function (groups, user) {
   return groups.find(function (group) {
-    return group[0] === value;
+    return group[0] === user;
   });
 };
 
@@ -13,12 +13,17 @@ const associateFriend = function (groups, friendGroup, user, friend) {
   friendGroup[1].push(friend);
 };
 
-const putInFriendList = function (groups, pairOfFriend) {
-  let friendGroup = findGroup(groups, pairOfFriend[0]);
-  associateFriend(groups, friendGroup, pairOfFriend[0], pairOfFriend[1]);
+const updateFriendList = function (groups, user, friend) {
+  let friendGroup = findUserGroup(groups, user);
+  associateFriend(groups, friendGroup, user, friend);
+};
 
-  friendGroup = findGroup(groups, pairOfFriend[1]);
-  associateFriend(groups, friendGroup, pairOfFriend[1], pairOfFriend[0]);
+const putInFriendList = function (groups, pairOfFriend) {
+  const user1 = pairOfFriend[0];
+  const user2 = pairOfFriend[1];
+
+  updateFriendList(groups, user1, user2);
+  updateFriendList(groups, user2, user1);
 
   return groups;
 };
